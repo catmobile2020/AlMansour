@@ -15,10 +15,6 @@ class MediaResource extends JsonResource
      */
     public function toArray($request)
     {
-        return $data = [
-            'id' => $this->id,
-            'service_id' => $this->service_id,
-            'file' => asset(Storage::url($this->file))
-        ];
+        return asset(Storage::url($this->file));
     }
 }

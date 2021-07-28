@@ -19,11 +19,10 @@ class MediaController extends Controller
             $imageName = StoreFile::save($request->file, 'media');
             $request->file = $imageName;
         }
-        $request->service_id = '1';
 
         Media::create([
             'file' => $imageName,
-            'service_id' => '1'
+            'service_id' => $request->id
         ]);
 
         return response()->json(['success'=>$imageName]);

@@ -5,6 +5,7 @@
     <div id="dropzone">
         <form action="{{ route('dropzoneFileUpload') }}" class="dropzone" id="file-upload" enctype="multipart/form-data">
             @csrf
+            <input type="hidden" name="id" value="{{ $service->id }}">
             <div class="dz-message">
                 Drag and Drop Single/Multiple Files Here<br>
             </div>
