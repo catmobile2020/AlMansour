@@ -19,7 +19,7 @@ class NewsController extends Controller
                 'message' => 'This Language not found!',
             ], '404');
         }
-        return NewsResource::collection($news->where('language_id', $lang->id)->orderBy('id', 'desc')->paginate($perPage)
+        return NewsResource::collection($news->where('language_id', '1')->orderBy('id', 'desc')->paginate($perPage)
             ->appends([
                 'per_page' => $perPage
             ])

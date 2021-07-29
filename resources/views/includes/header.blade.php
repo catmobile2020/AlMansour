@@ -23,8 +23,8 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route('posts.index') }}">News Feed List</a>
-                        <a class="collapse-item" href="{{ route('posts.create') }}">Add Post</a>
+                        <a class="collapse-item" href="{{ route('posts.index') }}">News</a>
+                        <a class="collapse-item" href="{{ route('posts.create') }}">Add New News</a>
                     </div>
                 </div>
             </li>
@@ -42,6 +42,11 @@
                 <a class="nav-link" href="{{ route('contacts.index') }}">
                     <i class="fas fa-phone-square-alt"></i>
                     <span>Contact</span></a>
+            </li>
+            <li class="nav-item  {{ Route::currentRouteName() == 'galleries.index' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('galleries.index') }}">
+                    <i class="fas fa-phone-square-alt"></i>
+                    <span>Gallery</span></a>
             </li>
 {{--            <li class="nav-item  {{ Route::currentRouteName() == 'users.index' ? 'active' : '' }}">--}}
 {{--                <a class="nav-link" href="{{ route('users.index') }}">--}}

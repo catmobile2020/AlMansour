@@ -24,6 +24,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('contacts', \App\Http\Controllers\ContactController::class);
     Route::resource('categories', \App\Http\Controllers\CategoryController::class);
     Route::resource('services', \App\Http\Controllers\ServiceController::class);
+    Route::resource('galleries', \App\Http\Controllers\GalleryController::class);
+    Route::post('galleries/file-upload', [\App\Http\Controllers\GalleryController::class, 'dropzoneFileUpload'])->name('galleries.dropzoneFileUpload');
     Route::get('media/show/{id}', [\App\Http\Controllers\MediaController::class, 'show'])->name('media');
     Route::post('file-upload', [\App\Http\Controllers\MediaController::class, 'dropzoneFileUpload'])->name('dropzoneFileUpload');
     Route::post('media/delete/{id}', [\App\Http\Controllers\MediaController::class, 'destroy'])->name('media.destroy');

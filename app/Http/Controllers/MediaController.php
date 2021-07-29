@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helper\DeleteOldFile;
 use App\Helper\StoreFile;
 use App\Models\Media;
 use App\Models\Service;
@@ -29,6 +30,7 @@ class MediaController extends Controller
     }
     public function destroy(Request $request, $id){
         $service = Media::findOrFail($id);
+        DeleteOldFile::delete($service->file);
         $service->delete();
         return 200;
     }
