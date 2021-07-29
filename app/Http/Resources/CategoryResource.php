@@ -16,15 +16,15 @@ class CategoryResource extends JsonResource
     {
         $data = [];
 
-        if ($request['lang'] == 'ar'){
+        if ($request['lang'] == 'en'){
             $data = [
                 'id'            => $this->id,
-                'name'         => $this->ar_name
+                'name'         => $this->en_name
             ];
         }else {
             $data = [
                 'id'            => $this->id,
-                'name'         => $this->en_name
+                'name'         => $this->ar_name
             ];
         }
 

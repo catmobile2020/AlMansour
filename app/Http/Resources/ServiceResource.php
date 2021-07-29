@@ -18,13 +18,13 @@ class ServiceResource extends JsonResource
     {
         $data = [];
 
-        if ($request['lang'] == 'ar'){
+        if ($request['lang'] == 'en'){
             $data = [
                 'id'            => $this->id,
                 'category_id'   => $this->category->id,
-                'category_name' => $this->category->ar_name,
-                'title'         => $this->ar_title,
-                'contact'       => $this->ar_content,
+                'category_name' => $this->category->en_name,
+                'title'         => $this->en_title,
+                'contact'       => $this->en_content,
                 'thumbnail'     => asset(Storage::url($this->thumbnail)),
                 'media'         => MediaResource::collection($this->media)
             ];
@@ -32,9 +32,9 @@ class ServiceResource extends JsonResource
             $data = [
                 'id'            => $this->id,
                 'category_id'   => $this->category->id,
-                'category_name' => $this->category->en_name,
-                'title'         => $this->en_title,
-                'contact'       => $this->en_content,
+                'category_name' => $this->category->ar_name,
+                'title'         => $this->ar_title,
+                'contact'       => $this->ar_content,
                 'thumbnail'     => asset(Storage::url($this->thumbnail)),
                 'media'         => MediaResource::collection($this->media)
             ];
