@@ -63,6 +63,11 @@
                     <i class="fas fa-list-ul"></i>
                     <span>About App</span></a>
             </li>
+            <li class="nav-item {{ Route::currentRouteName() == 'infos.edit' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('infos.edit') }}">
+                    <i class="fas fa-list-ul"></i>
+                    <span>Site Information</span></a>
+            </li>
 {{--            <li class="nav-item {{ Route::currentRouteName() == 'terms.edit' ? 'active' : '' }}">--}}
 {{--                <a class="nav-link" href="{{ route('terms.edit', '1') }}">--}}
 {{--                    <i class="fas fa-list-ul"></i>--}}

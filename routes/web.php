@@ -29,4 +29,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('media/show/{id}', [\App\Http\Controllers\MediaController::class, 'show'])->name('media');
     Route::post('file-upload', [\App\Http\Controllers\MediaController::class, 'dropzoneFileUpload'])->name('dropzoneFileUpload');
     Route::post('media/delete/{id}', [\App\Http\Controllers\MediaController::class, 'destroy'])->name('media.destroy');
+    Route::get('infos/edit', [\App\Http\Controllers\InfoController::class, 'edit'])->name('infos.edit');
+    Route::post('infos/edit/{id}', [\App\Http\Controllers\InfoController::class, 'update'])->name('infos.update');
 });

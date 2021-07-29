@@ -29,7 +29,7 @@ class StoreServices extends FormRequest
             'en_title' => 'required|string|min:2',
             'ar_content' => 'required|string|min:2',
             'en_content' => 'required|string|min:2',
-            'thumbnail' => 'nullable|image'
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ];
     }
 }

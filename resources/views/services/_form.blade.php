@@ -38,7 +38,7 @@
 
 <div class="form-group">
     <p>
-        <label for="image">{{ __('Thumbnail') }}</label>
+        <label for="thumbnail">{{ __('Thumbnail') }}</label>
         <input class="form-control-file" type="file" id="thumbnail" name="thumbnail">
     </p>
     {!! isset($service->thumbnail) ? '<img src="'.asset(Storage::url($service->thumbnail)).'" alt="Thumbnail" width="200">' : null !!}
