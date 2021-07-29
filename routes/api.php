@@ -21,4 +21,6 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
     Route::get('news', [\App\Http\Controllers\API\V1\NewsController::class, 'index']);
     Route::get('news/show', [\App\Http\Controllers\API\V1\NewsController::class, 'show']);
     Route::post('contact/store', [\App\Http\Controllers\API\V1\ContactController::class, 'store']);
+    Route::get('about', [\App\Http\Controllers\API\V1\AboutController::class, 'show']);
+    Route::get('info', [\App\Http\Controllers\API\V1\InfoController::class, 'show']);
 });
