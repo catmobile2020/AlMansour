@@ -19,4 +19,5 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
     Route::get('service/show', [\App\Http\Controllers\API\V1\ServiceController::class, 'show']);
     Route::get('news', [\App\Http\Controllers\API\V1\NewsController::class, 'index']);
     Route::get('news/show', [\App\Http\Controllers\API\V1\NewsController::class, 'show']);
+    Route::post('contact/store', [\App\Http\Controllers\API\V1\ContactController::class, 'store']);
 });
