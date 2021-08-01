@@ -14,7 +14,8 @@ class CareerApply extends Model
         'name',
         'email',
         'mobile',
-        'cv'
+        'cv',
+        'status'
     ];
 
     public function career(){

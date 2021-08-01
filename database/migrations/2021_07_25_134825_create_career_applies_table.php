@@ -20,6 +20,7 @@ class CreateCareerAppliesTable extends Migration
             $table->string('email');
             $table->string('mobile');
             $table->string('cv', 255);
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }

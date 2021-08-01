@@ -23,4 +23,6 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
     Route::post('contact/store', [\App\Http\Controllers\API\V1\ContactController::class, 'store']);
     Route::get('about', [\App\Http\Controllers\API\V1\AboutController::class, 'show']);
     Route::get('info', [\App\Http\Controllers\API\V1\InfoController::class, 'show']);
+    Route::get('career', [\App\Http\Controllers\API\V1\CareerController::class, 'index']);
+    Route::get('career/show', [\App\Http\Controllers\API\V1\CareerController::class, 'show']);
 });

@@ -38,11 +38,21 @@
                     <i class="fas fa-concierge-bell"></i>
                     <span>Services</span></a>
             </li>
-            <li class="nav-item  {{ Route::currentRouteName() == 'careers.index' ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('careers.index') }}">
+
+            <li class="nav-item {{ Route::currentRouteName() == 'careers.index' ? 'active' : '' }}">
+                <a class="nav-link {{ Route::currentRouteName() == 'careers.index' ? '' : 'collapsed' }} " href="#" data-toggle="collapse" data-target="#collapseCareer"
+                   aria-expanded="{{ Route::currentRouteName() == 'careers.index' ? 'true' : 'false' }}" aria-controls="collapseCareer">
                     <i class="fas fa-hand-holding-medical"></i>
-                    <span>Careers</span></a>
+                    <span>Careers</span>
+                </a>
+                <div id="collapseCareer" class="collapse {{ Route::currentRouteName() == 'careers.index' ? 'show' : '' }}" aria-labelledby="headingCareer" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route('careers.index') }}">Careers</a>
+                        <a class="collapse-item" href="{{ route('careers_apply.index') }}">Careers Applying List</a>
+                    </div>
+                </div>
             </li>
+
             <li class="nav-item  {{ Route::currentRouteName() == 'contacts.index' ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('contacts.index') }}">
                     <i class="fas fa-phone-square-alt"></i>
