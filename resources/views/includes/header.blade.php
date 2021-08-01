@@ -23,20 +23,25 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route('posts.index') }}">News</a>
-                        <a class="collapse-item" href="{{ route('posts.create') }}">Add New News</a>
+                        <a class="collapse-item" href="{{ route('posts.index') }}"><i class="fas fa-list-ul"></i> News</a>
+                        <a class="collapse-item" href="{{ route('posts.create') }}"><i class="fas fa-plus"></i> Add New News</a>
                     </div>
                 </div>
             </li>
             <li class="nav-item  {{ Route::currentRouteName() == 'categories.index' ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('categories.index') }}">
-                    <i class="fas fa-square"></i>
+                    <i class="fas fa-database"></i>
                     <span>Categories</span></a>
             </li>
             <li class="nav-item  {{ Route::currentRouteName() == 'services.index' ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('services.index') }}">
-                    <i class="fas fa-square"></i>
+                    <i class="fas fa-concierge-bell"></i>
                     <span>Services</span></a>
+            </li>
+            <li class="nav-item  {{ Route::currentRouteName() == 'careers.index' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('careers.index') }}">
+                    <i class="fas fa-hand-holding-medical"></i>
+                    <span>Careers</span></a>
             </li>
             <li class="nav-item  {{ Route::currentRouteName() == 'contacts.index' ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('contacts.index') }}">
@@ -45,7 +50,7 @@
             </li>
             <li class="nav-item  {{ Route::currentRouteName() == 'galleries.index' ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('galleries.index') }}">
-                    <i class="fas fa-phone-square-alt"></i>
+                    <i class="far fa-images"></i>
                     <span>Gallery</span></a>
             </li>
 {{--            <li class="nav-item  {{ Route::currentRouteName() == 'users.index' ? 'active' : '' }}">--}}
@@ -53,19 +58,14 @@
 {{--                    <i class="fas fa-users"></i>--}}
 {{--                    <span>Users</span></a>--}}
 {{--            </li>--}}
-{{--            <li class="nav-item {{ Route::currentRouteName() == 'homes.edit' ? 'active' : '' }}">--}}
-{{--                <a class="nav-link" href="{{ route('homes.edit', '1') }}">--}}
-{{--                    <i class="fas fa-list-ul"></i>--}}
-{{--                    <span>Home Page</span></a>--}}
-{{--            </li>--}}
             <li class="nav-item {{ Route::currentRouteName() == 'abouts.edit' ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('abouts.edit', '1') }}">
-                    <i class="fas fa-list-ul"></i>
+                    <i class="far fa-address-card"></i>
                     <span>About App</span></a>
             </li>
             <li class="nav-item {{ Route::currentRouteName() == 'infos.edit' ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('infos.edit') }}">
-                    <i class="fas fa-list-ul"></i>
+                    <i class="fas fa-cog"></i>
                     <span>Site Information</span></a>
             </li>
 {{--            <li class="nav-item {{ Route::currentRouteName() == 'terms.edit' ? 'active' : '' }}">--}}
