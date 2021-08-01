@@ -57,9 +57,13 @@ class CareerController extends Controller
     }
     public function destroy(Request $request, $id)
     {
-        $category = Career::findOrFail($id);
+        $career = Career::findOrFail($id);
 
-        $category->delete();
+        foreach ($career->apply as $apply){
+            $apply->delete();
+        }
+
+        $career->delete();
 
         $request->session()->flash('status', __('Career was deleted!'));
         return redirect()->route('careers.index');

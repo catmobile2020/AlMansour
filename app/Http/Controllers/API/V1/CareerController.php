@@ -5,7 +5,11 @@ namespace App\Http\Controllers\API\V1;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CareerResource;
 use App\Models\Career;
+use App\Models\CareerApply;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class CareerController extends Controller
 {
@@ -19,5 +23,33 @@ class CareerController extends Controller
     }
     public function show(Career $career, Request $request){
         return CareerResource::collection($career->where('id', $request->id)->get());
+    }
+    public function apply(CareerApply $careerApply, Request $request){
+        $validator = Validator::make($request->all(), [
+            'name'      => 'required|min:2|max:255|string',
+            'email'     => 'required|min:4|email',
+            'mobile'    => 'required|min:5|string',
+            'cv'        => 'required|mimes:pdf,doc,docx|max:10000'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'error' => $validator->messages(),
+            ], '400');
+        }
+
+
+        $cvName      = 'cvs/' . time() . Str::random(5) . $request->cv->getClientOriginalExtension();
+
+        Storage::put($cvName, $request->cv);
+        unset($request->cv);
+        $request->cv = $cvName;
+
+        $careerApply->create($request->all());
+
+        return response()->json([
+            'message' => 'Apply Successfully'
+        ], 200);
     }
 }

@@ -19,6 +19,7 @@
                                     <th scope="col">{{ __('Name') }}</th>
                                     <th scope="col">{{ __('Email') }}</th>
                                     <th scope="col">{{ __('Mobile') }}</th>
+                                    <th scope="col">{{ __('CV') }}</th>
                                     <th scope="col">{{ __('Created at') }}</th>
                                     <th scope="col">{{ __('Action') }}</th>
                                 </tr>
@@ -30,9 +31,16 @@
                                     <th scope="row">{{ $i }}</th>
                                     <td>{{ $apply->career->title }}</td>
                                     <td>{{ $apply->name }}</td>
-                                    <td>{{ $apply->email }}</td>
-                                    <td>{{ $apply->mobile }}</td>
-                                    <td>{{ $apply->created_at }}</td>
+                                    <td><a href="mailTo:{{ $apply->email }}">{{ $apply->email }}</a></td>
+                                    <td><a href="tel:{{ $apply->mobile }}">{{ $apply->mobile }}</a></td>
+                                    <td>
+                                        @if(Storage::exists($apply->cv))
+                                            <a class="btn btn-primary btn-sm" href="{{ Storage::download($apply->cv) }}">{{ __('Download') }}</a>
+                                        @else
+                                            'file not exists'
+                                        @endif
+                                    </td>
+                                    <td title="{{ $apply->created_at }}">{{ $apply->created_at->diffForHumans() }}</td>
                                     <td>
                                         <a class="badge badge-danger"
                                            href="{{ route('careers_apply.destroy', ['careers_apply' => $apply->id])}}"
@@ -49,7 +57,7 @@
                                 <?php $i++; ?>
                             @empty
                                 <tr>
-                                    <th colspan="6" scope="row">No Data to Show</th>
+                                    <th colspan="8" scope="row">No Data to Show</th>
                                 </tr>
                             @endforelse
                             </tbody>

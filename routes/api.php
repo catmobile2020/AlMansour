@@ -25,4 +25,5 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
     Route::get('info', [\App\Http\Controllers\API\V1\InfoController::class, 'show']);
     Route::get('career', [\App\Http\Controllers\API\V1\CareerController::class, 'index']);
     Route::get('career/show', [\App\Http\Controllers\API\V1\CareerController::class, 'show']);
+    Route::post('career/apply', [\App\Http\Controllers\API\V1\CareerController::class, 'apply']);
 });

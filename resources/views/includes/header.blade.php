@@ -39,13 +39,13 @@
                     <span>Services</span></a>
             </li>
 
-            <li class="nav-item {{ Route::currentRouteName() == 'careers.index' ? 'active' : '' }}">
-                <a class="nav-link {{ Route::currentRouteName() == 'careers.index' ? '' : 'collapsed' }} " href="#" data-toggle="collapse" data-target="#collapseCareer"
-                   aria-expanded="{{ Route::currentRouteName() == 'careers.index' ? 'true' : 'false' }}" aria-controls="collapseCareer">
+            <li class="nav-item {{ Route::currentRouteName() == 'careers.index' ? 'active' : '' }}{{ Route::currentRouteName() == 'careers_apply.index' ? 'active' : '' }}">
+                <a class="nav-link {{ Route::currentRouteName() == 'careers.index' ? '' : 'collapsed' }}{{ Route::currentRouteName() == 'careers_apply.index' ? '' : 'collapsed' }} " href="#" data-toggle="collapse" data-target="#collapseCareer"
+                   aria-expanded="{{ Route::currentRouteName() == 'careers.index' ? 'true' : 'false' }}{{ Route::currentRouteName() == 'careers_apply.index' ? 'true' : 'false' }}" aria-controls="collapseCareer">
                     <i class="fas fa-hand-holding-medical"></i>
                     <span>Careers</span>
                 </a>
-                <div id="collapseCareer" class="collapse {{ Route::currentRouteName() == 'careers.index' ? 'show' : '' }}" aria-labelledby="headingCareer" data-parent="#accordionSidebar">
+                <div id="collapseCareer" class="collapse {{ Route::currentRouteName() == 'careers.index' ? 'show' : '' }}{{ Route::currentRouteName() == 'careers_apply.index' ? 'show' : '' }}" aria-labelledby="headingCareer" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{ route('careers.index') }}">Careers</a>
                         <a class="collapse-item" href="{{ route('careers_apply.index') }}">Careers Applying List</a>
