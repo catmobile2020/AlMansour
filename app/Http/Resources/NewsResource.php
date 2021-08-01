@@ -13,7 +13,7 @@ class NewsResource extends JsonResource
         if (Storage::exists($this->image)){
             $this['image'] = asset(Storage::url($this->image));
         }else {
-            $this['image'] = asset('media/default_image.png');
+            $this['image'] = asset('img/default_image.png');
         }
 
         return $data = [
