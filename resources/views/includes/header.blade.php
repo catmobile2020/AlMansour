@@ -15,13 +15,13 @@
                     <span>Dashboard</span></a>
             </li>
             <hr class="sidebar-divider">
-            <li class="nav-item {{ Route::currentRouteName() == 'posts.index' ? 'active' : '' }}">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+            <li class="nav-item {{ Route::currentRouteName() == 'posts.index' ? 'active' : '' }} {{ Route::currentRouteName() == 'posts.create' ? 'active' : '' }}">
+                <a class="nav-link {{ Route::currentRouteName() == 'posts.index' ? 'collapsed' : '' }} {{ Route::currentRouteName() == 'posts.create' ? 'collapsed' : '' }}" href="#" data-toggle="collapse" data-target="#collapseTwo"
                    aria-expanded="true" aria-controls="collapseTwo">
                     <i class="far fa-newspaper"></i>
                     <span>News Feed</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse {{ Route::currentRouteName() == 'posts.index' ? 'show' : '' }} {{ Route::currentRouteName() == 'posts.create' ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{ route('posts.index') }}"><i class="fas fa-list-ul"></i> News</a>
                         <a class="collapse-item" href="{{ route('posts.create') }}"><i class="fas fa-plus"></i> Add New News</a>
@@ -41,7 +41,7 @@
 
             <li class="nav-item {{ Route::currentRouteName() == 'careers.index' ? 'active' : '' }}{{ Route::currentRouteName() == 'careers_apply.index' ? 'active' : '' }}">
                 <a class="nav-link {{ Route::currentRouteName() == 'careers.index' ? 'collapsed' : '' }}{{ Route::currentRouteName() == 'careers_apply.index' ? 'collapsed' : '' }} " href="#" data-toggle="collapse" data-target="#collapseCareer"
-                   aria-expanded="{{ Route::currentRouteName() == 'careers.index' ? 'true' : 'false' }}{{ Route::currentRouteName() == 'careers_apply.index' ? 'true' : 'false' }}" aria-controls="collapseCareer">
+                   aria-expanded="" aria-controls="collapseCareer">
                     <i class="fas fa-hand-holding-medical"></i>
                     <span>Careers</span>
                 </a>
