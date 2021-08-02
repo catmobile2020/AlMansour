@@ -35,7 +35,7 @@
                                     <td><a href="tel:{{ $apply->mobile }}">{{ $apply->mobile }}</a></td>
                                     <td>
                                         @if(Storage::exists($apply->cv))
-                                            <a class="btn btn-primary btn-sm" href="{{ Storage::download($apply->cv) }}">{{ __('Download') }}</a>
+                                            <a class="btn btn-primary btn-sm" href="{{ Storage::url($apply->cv) }}" download="{{ Storage::url($apply->cv) }}">{{ __('Download') }}</a>
                                         @else
                                             'file not exists'
                                         @endif
