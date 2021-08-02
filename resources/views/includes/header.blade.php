@@ -40,7 +40,7 @@
             </li>
 
             <li class="nav-item {{ Route::currentRouteName() == 'careers.index' ? 'active' : '' }}{{ Route::currentRouteName() == 'careers_apply.index' ? 'active' : '' }}">
-                <a class="nav-link {{ Route::currentRouteName() == 'careers.index' ? '' : 'collapsed' }}{{ Route::currentRouteName() == 'careers_apply.index' ? '' : 'collapsed' }} " href="#" data-toggle="collapse" data-target="#collapseCareer"
+                <a class="nav-link {{ Route::currentRouteName() == 'careers.index' ? 'collapsed' : '' }}{{ Route::currentRouteName() == 'careers_apply.index' ? 'collapsed' : '' }} " href="#" data-toggle="collapse" data-target="#collapseCareer"
                    aria-expanded="{{ Route::currentRouteName() == 'careers.index' ? 'true' : 'false' }}{{ Route::currentRouteName() == 'careers_apply.index' ? 'true' : 'false' }}" aria-controls="collapseCareer">
                     <i class="fas fa-hand-holding-medical"></i>
                     <span>Careers</span>
@@ -52,7 +52,6 @@
                     </div>
                 </div>
             </li>
-
             <li class="nav-item  {{ Route::currentRouteName() == 'contacts.index' ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('contacts.index') }}">
                     <i class="fas fa-phone-square-alt"></i>

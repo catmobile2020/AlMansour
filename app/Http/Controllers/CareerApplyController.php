@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class CareerApplyController extends Controller
 {
     public function index(){
-        $careersApply = CareerApply::where('status', true)->paginate(10);
+        $careersApply = CareerApply::where('status', true)->orderBy('id', 'desc')->paginate(10);
         return view('careers_apply.index', compact('careersApply'), ['meta_title' => __('Careers Applying List')]);
     }
     public function destroy(Request $request, $id)

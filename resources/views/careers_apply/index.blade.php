@@ -29,7 +29,7 @@
                             @forelse ($careersApply as $apply)
                                 <tr>
                                     <th scope="row">{{ $i }}</th>
-                                    <td>{{ $apply->career->title }}</td>
+                                    <td>{{ $apply->career->title ?? 'no longer available' }}</td>
                                     <td>{{ $apply->name }}</td>
                                     <td><a href="mailTo:{{ $apply->email }}">{{ $apply->email }}</a></td>
                                     <td><a href="tel:{{ $apply->mobile }}">{{ $apply->mobile }}</a></td>

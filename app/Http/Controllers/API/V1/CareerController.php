@@ -28,6 +28,7 @@ class CareerController extends Controller
         $validator = Validator::make($request->all(), [
             'name'      => 'required|min:2|max:255|string',
             'email'     => 'required|min:4|email',
+            'career_id' => 'required|exists:careers,id',
             'mobile'    => 'required|min:5|string',
             'cv'        => 'required|mimes:pdf,doc,docx|max:10000'
         ]);
@@ -39,14 +40,22 @@ class CareerController extends Controller
             ], '400');
         }
 
+        if ($request->hasFile('cv')) {
+            $cvName = '/cv/' . time() . '.' . $request->file('cv')->extension();
+            Storage::putFileAs('/', $request->file('cv'), $cvName);
+            unset($request->cv);
+            $request->merge([
+                'cv_name' => $cvName,
+            ]);
+        }
 
-        $cvName      = 'cvs/' . time() . Str::random(5) . $request->cv->getClientOriginalExtension();
-
-        Storage::put($cvName, $request->cv);
-        unset($request->cv);
-        $request->cv = $cvName;
-
-        $careerApply->create($request->all());
+        $careerApply->create([
+            'career_id' => $request->career_id,
+            'name' => $request->name,
+            'email' => $request->email,
+            'mobile' => $request->mobile,
+            'cv' => $request->cv_name
+        ]);
 
         return response()->json([
             'message' => 'Apply Successfully'
