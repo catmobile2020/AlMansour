@@ -24,8 +24,9 @@ class StoreCategory extends FormRequest
     public function rules()
     {
         return [
-            'ar_name' => 'string|min:2',
-            'en_name' => 'string|min:2'
+            'ar_name'   => 'string|min:2',
+            'en_name'   => 'string|min:2',
+            'image'     => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ];
     }
 }

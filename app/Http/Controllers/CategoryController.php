@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Events\CategoryPosted;
+use App\Helper\DeleteOldFile;
+use App\Helper\StoreFile;
 use App\Http\Requests\StoreCategory;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -31,7 +33,11 @@ class CategoryController extends Controller
     public function store(StoreCategory $request)
     {
         $validateData = $request->validated();
-
+        if ($request->hasFile('image')) {
+            unset($validateData['image']);
+            $imageName = StoreFile::save($request->image, 'category');
+            $validateData['image'] = $imageName;
+        }
         $category = Category::create($validateData);
 
         event(new CategoryPosted($category));
@@ -85,6 +91,14 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
 
         $validateData = $request->validated();
+
+        if ($request->hasFile('image')) {
+            if (isset($post->image)) {
+                DeleteOldFile::delete($post->image);
+            }
+            $imageName = StoreFile::save($request->image, 'category');
+            $validateData['image'] = $imageName;
+        }
 
         $category->fill($validateData);
 

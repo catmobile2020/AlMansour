@@ -2,6 +2,9 @@
 
 namespace App\Events;
 
+use App\Models\Career;
+use App\Models\Category;
+use App\Models\News;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -14,23 +17,14 @@ class CategoryPosted
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    /**
-     * Create a new event instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
+    public $category;
 
     /**
-     * Get the channels the event should broadcast on.
-     *
-     * @return \Illuminate\Broadcasting\Channel|array
+     * CategoryPosted constructor.
+     * @param Category $category
      */
-    public function broadcastOn()
+    public function __construct(Category $category)
     {
-        return new PrivateChannel('channel-name');
+        $this->category = $category;
     }
 }

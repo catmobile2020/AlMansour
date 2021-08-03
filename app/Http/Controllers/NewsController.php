@@ -91,8 +91,8 @@ class NewsController extends Controller
         $validateData = $request->validated();
 
         if ($request->hasFile('image')) {
-            if (isset($post->photo)) {
-                DeleteOldFile::delete($post->photo);
+            if (isset($post->image)) {
+                DeleteOldFile::delete($post->image);
             }
             $imageName = StoreFile::save($request->image, 'posts');
             $validateData['image'] = $imageName;

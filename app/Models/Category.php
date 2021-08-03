@@ -12,7 +12,8 @@ class Category extends Model
 
     protected $fillable = [
         'ar_name',
-        'en_name'
+        'en_name',
+        'image'
     ];
 
     public function services(){

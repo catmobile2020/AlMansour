@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryResource extends JsonResource
 {
@@ -19,16 +20,16 @@ class CategoryResource extends JsonResource
         if ($request['lang'] == 'en'){
             $data = [
                 'id'            => $this->id,
-                'name'         => $this->en_name
+                'name'          => $this->en_name,
+                'image'         => asset(Storage::url($this->image))
             ];
         }else {
             $data = [
-                'id'            => $this->id,
-                'name'         => $this->ar_name
+                'id'           => $this->id,
+                'name'         => $this->ar_name,
+                'image'        => asset(Storage::url($this->image))
             ];
         }
-
-
         return $data;
     }
 }
