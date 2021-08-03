@@ -21,6 +21,7 @@ class CreateServicesTable extends Migration
             $table->string('en_title');
             $table->text('en_content');
             $table->string('thumbnail');
+            $table->string('video');
             $table->timestamps();
         });
     }

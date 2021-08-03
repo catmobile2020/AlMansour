@@ -38,6 +38,13 @@
 
 <div class="form-group">
     <p>
+        <label for="video">{{ __('Video Link') }}</label>
+        <input class="form-control" type="url" id="video" placeholder="Enter Youtube Link" required name="video" value="{{ old('video', $service->video ?? null) }}"/>
+    </p>
+</div>
+
+<div class="form-group">
+    <p>
         <label for="thumbnail">{{ __('Thumbnail') }}</label>
         <input class="form-control-file" type="file" id="thumbnail" name="thumbnail">
     </p>

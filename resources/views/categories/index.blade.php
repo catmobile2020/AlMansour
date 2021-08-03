@@ -18,6 +18,7 @@
                                     <th scope="col">#</th>
                                     <th scope="col">{{ __('AR Name') }}</th>
                                     <th scope="col">{{ __('EN Name') }}</th>
+                                    <th scope="col">{{ __('Image') }}</th>
                                     <th scope="col">{{ __('Action') }}</th>
                                 </tr>
                             </thead>
@@ -28,6 +29,7 @@
                                     <th scope="row">{{ $i }}</th>
                                     <td>{{ $category->ar_name }}</td>
                                     <td>{{ $category->en_name }}</td>
+                                    <td><img src="{{ asset(Storage::url($category->image)) }}" alt="Image Category" width="50"></td>
                                     <td>
                                         <a class="badge badge-light" href="{{ route('categories.edit', ['category' => $category->id])}}">Edit</a>
                                         <a class="badge badge-danger"

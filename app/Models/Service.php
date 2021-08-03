@@ -17,6 +17,7 @@ class Service extends Model
         'ar_content',
         'en_content',
         'thumbnail',
+        'video'
     ];
 
     protected $perPage = 15;

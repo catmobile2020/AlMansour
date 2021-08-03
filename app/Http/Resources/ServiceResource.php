@@ -26,6 +26,7 @@ class ServiceResource extends JsonResource
                 'title'         => $this->en_title,
                 'contact'       => $this->en_content,
                 'thumbnail'     => asset(Storage::url($this->thumbnail)),
+                'video'         => asset(Storage::url($this->video)),
                 'media'         => MediaResource::collection($this->media)
             ];
         }else {
@@ -36,6 +37,7 @@ class ServiceResource extends JsonResource
                 'title'         => $this->ar_title,
                 'contact'       => $this->ar_content,
                 'thumbnail'     => asset(Storage::url($this->thumbnail)),
+                'video'         => asset(Storage::url($this->video)),
                 'media'         => MediaResource::collection($this->media)
             ];
         }

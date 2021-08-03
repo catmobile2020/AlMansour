@@ -24,12 +24,13 @@ class StoreServices extends FormRequest
     public function rules()
     {
         return [
-            'category_id' => 'required|string|min:1',
-            'ar_title' => 'required|string|min:2',
-            'en_title' => 'required|string|min:2',
-            'ar_content' => 'required|string|min:2',
-            'en_content' => 'required|string|min:2',
-            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'category_id'   => 'required|string|min:1',
+            'ar_title'      => 'required|string|min:2',
+            'en_title'      => 'required|string|min:2',
+            'ar_content'    => 'required|string|min:2',
+            'en_content'    => 'required|string|min:2',
+            'thumbnail'     => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'video'         => 'nullable|url'
         ];
     }
 }
