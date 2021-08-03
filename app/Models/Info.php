@@ -16,6 +16,9 @@ class Info extends Model
         'fax',
         'map',
         'email',
+        'facebook',
+        'twitter',
+        'linkedin',
         'logo',
         'favicon'
     ];

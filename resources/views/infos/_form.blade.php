@@ -39,6 +39,24 @@
         <input class="form-control" type="url" id="map" name="map" value="{{ old('map', $info->map ?? null) }}"/>
     </p>
 </div>
+<div class="form-group">
+    <p>
+        <label for="facebook">{{ __('Facebook') }}</label>
+        <input class="form-control" type="url" id="facebook" name="facebook" value="{{ old('facebook', $info->facebook ?? null) }}"/>
+    </p>
+</div>
+<div class="form-group">
+    <p>
+        <label for="twitter">{{ __('Twitter') }}</label>
+        <input class="form-control" type="url" id="twitter" name="twitter" value="{{ old('twitter', $info->twitter ?? null) }}"/>
+    </p>
+</div>
+<div class="form-group">
+    <p>
+        <label for="linkedin">{{ __('Linkedin') }}</label>
+        <input class="form-control" type="url" id="linkedin" name="linkedin" value="{{ old('linkedin', $info->linkedin ?? null) }}"/>
+    </p>
+</div>
 
 <div class="form-group">
     <p>

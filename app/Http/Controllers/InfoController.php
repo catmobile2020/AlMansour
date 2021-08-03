@@ -15,6 +15,7 @@ class InfoController extends Controller
         return view('infos.edit', compact('info'));
     }
     public function update(UpdateInfo $request, $id){
+
         $info = Info::findOrFail($id);
 
         $validateData = $request->validated();
@@ -41,6 +42,7 @@ class InfoController extends Controller
         $info->fill($validateData);
 
         $info->save();
+
         $request->session()->flash('status', __('Information was Updated'));
 
         return back();
