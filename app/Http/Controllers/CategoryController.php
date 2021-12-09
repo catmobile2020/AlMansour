@@ -92,15 +92,13 @@ class CategoryController extends Controller
 
         $validateData = $request->validated();
 
-//        if ($request->hasFile('image')) {
+        if ($request->hasFile('image')) {
             if (isset($post->image)) {
                 DeleteOldFile::delete($post->image);
             }
-            $image = $validateData['image'];
-            unset($validateData['image']);
-            $imageName = StoreFile::save($image, 'category');
+            $imageName = StoreFile::save($request->image, 'category');
             $validateData['image'] = $imageName;
-//        }
+        }
 
         $category->fill($validateData);
 

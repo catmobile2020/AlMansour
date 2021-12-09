@@ -17,7 +17,6 @@
         <label for="image">{{ __('Image') }}</label>
         <input class="form-control-file" type="file" id="image" name="image">
     </p>
-    tet
     @if(isset($category->image))
             <img src="{{ asset(Storage::url($category->image)) }}" alt="Image" width="200">
     @endif
