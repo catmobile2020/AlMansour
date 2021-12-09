@@ -92,19 +92,21 @@ class CategoryController extends Controller
 
         $validateData = $request->validated();
 
-        if ($request->hasFile('image')) {
+//        if ($request->hasFile('image')) {
             if (isset($post->image)) {
                 DeleteOldFile::delete($post->image);
             }
-            $imageName = StoreFile::save($request->image, 'category');
+            $image = $validateData['image'];
+            unset($validateData['image']);
+            $imageName = StoreFile::save($image, 'category');
             $validateData['image'] = $imageName;
-        }
+//        }
 
         $category->fill($validateData);
 
         $category->save();
 
-        $request->session()->flash('status', __('Category was Updeted'));
+        $request->session()->flash('status', __('Category was Updated'));
 
         return redirect()->route('categories.edit', ['category' => $category->id]);
     }
