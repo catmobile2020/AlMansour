@@ -30,6 +30,7 @@ class UpdateInfo extends FormRequest
             'fax' => 'required|string|min:2',
             'facebook' => 'nullable|string|min:2',
             'twitter' => 'nullable|string|min:2',
+            'instgram' => 'nullable|string|min:2',
             'linkedin' => 'nullable|string|min:2',
             'map' => 'required|url|min:2',
             'email' => 'required|email|min:2',

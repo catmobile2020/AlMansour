@@ -17,6 +17,7 @@ class Info extends Model
         'map',
         'email',
         'facebook',
+        'instgram',
         'twitter',
         'linkedin',
         'logo',

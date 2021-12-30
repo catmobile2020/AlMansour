@@ -10,13 +10,19 @@ class Category extends Model
     use HasFactory;
     protected $table = 'categories';
 
-    protected $fillable = [
-        'ar_name',
-        'en_name',
-        'image'
-    ];
+    protected $guarded = [];
+
+    public function children()
+    {
+        return $this->hasMany(self::class, 'parent_id', 'id')->whereNotNull('parent_id');
+    }
+
+    public function parent(){
+        return $this->belongsTo(self::class, 'parent_id')->whereNull('parent_id');
+    }
 
     public function services(){
         return $this->hasMany(Service::class);
     }
+
 }

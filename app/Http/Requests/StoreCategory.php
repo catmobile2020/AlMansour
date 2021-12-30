@@ -26,6 +26,7 @@ class StoreCategory extends FormRequest
         return [
             'ar_name'   => 'string|min:2',
             'en_name'   => 'string|min:2',
+            'parent_id' => 'nullable|string',
             'image'     => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ];
     }

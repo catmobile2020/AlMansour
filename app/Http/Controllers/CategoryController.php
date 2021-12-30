@@ -21,7 +21,9 @@ class CategoryController extends Controller
 
     public function create()
     {
-        return view('categories.create', ['meta_title' => __('Add Category')]);
+        $childrens = Category::whereNull('parent_id')->get();
+        $category = null;
+        return view('categories.create', ['meta_title' => __('Add Category'), 'childrens' => $childrens, 'category' => $category]);
     }
 
     /**
@@ -72,9 +74,10 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = Category::findOrFail($id);
-
+        $childrens = Category::whereNull('parent_id')->get();
         return view('categories.edit', [
             'category' => $category,
+            'childrens' => $childrens,
             'meta_title' => __('Update Category')
         ]);
     }

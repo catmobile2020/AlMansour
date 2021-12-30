@@ -11,6 +11,24 @@
         <input class="form-control" type="text" id="ar_name" placeholder="Enter Title (AR)" required name="ar_name" value="{{ old('ar_name', $category->ar_name ?? null) }}"/>
     </p>
 </div>
+<div class="form-group">
+    <p>
+        <label for="ar_name">Child?</label>
+        <input type="checkbox" id="checkbox_child" onchange="valueChanged()" {{ $category != null ? ($category->parent()->exists() ? 'checked' : '') : '' }} />
+    </p>
+</div>
+
+<div class="form-group" id="child" style="display: {{ $category != null ? ($category->parent()->exists() ? 'show' : 'none') : '' }};">
+    <p>
+        <label for="ar_name">{{ __('Sub-Category') }}</label>
+        <select name="parent_id" class="form-control" id="parent_id">
+            <option value="">Child Category</option>
+            @foreach($childrens as $children)
+                <option value="{{ $children->id }}" {{ isset($category) ? ($category->parent()->exists() ? ($category->parent->id == $children->id ? 'selected' : '') : null) : null }}>{{ $children->en_name }}</option>
+            @endforeach
+        </select>
+    </p>
+</div>
 
 <div class="form-group">
     <p>
@@ -21,5 +39,15 @@
             <img src="{{ asset(Storage::url($category->image)) }}" alt="Image" width="200">
     @endif
 </div>
+<script>
+    function valueChanged()
+    {
+        if($('#checkbox_child').is(":checked"))
+            $("#child").show();
+        else
+            $("#child").hide();
+            $('#parent_id').prop('selectedIndex', 0);
+    }
+</script>
 @component('layouts.components.errors')
 @endcomponent

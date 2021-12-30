@@ -47,6 +47,12 @@
 </div>
 <div class="form-group">
     <p>
+        <label for="instgram">{{ __('Instgram') }}</label>
+        <input class="form-control" type="url" id="instgram" name="instgram" value="{{ old('instgram', $info->instgram ?? null) }}"/>
+    </p>
+</div>
+<div class="form-group">
+    <p>
         <label for="twitter">{{ __('Twitter') }}</label>
         <input class="form-control" type="url" id="twitter" name="twitter" value="{{ old('twitter', $info->twitter ?? null) }}"/>
     </p>
