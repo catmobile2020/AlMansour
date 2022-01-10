@@ -9,9 +9,9 @@ use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
-    public function index(Service $service, Request $request){
+    public function index(Request $request){
         $perPage = $request->get('per_page', 15);
-        return ServiceResource::collection($service->paginate($perPage)
+        return ServiceResource::collection(Service::where('category_id', $request->category_id)->paginate($perPage)
             ->appends([
                 'per_page' => $perPage
             ])

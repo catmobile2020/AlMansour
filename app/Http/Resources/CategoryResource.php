@@ -23,7 +23,7 @@ class CategoryResource extends JsonResource
                 'name'              => $this->en_name,
                 'image'             => asset(Storage::url($this->image)),
                 'children_count'    => $this->children->count(),
-                'children'          => $this->children
+//                'children'          => $this->children
             ];
         }else {
             $data = [
@@ -31,7 +31,7 @@ class CategoryResource extends JsonResource
                 'name'              => $this->ar_name,
                 'image'             => asset(Storage::url($this->image)),
                 'children_count'    => $this->children->count(),
-                'children'          => $this->children
+//                'children'          => $this->children
             ];
         }
         return $data;

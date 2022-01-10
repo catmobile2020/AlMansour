@@ -17,4 +17,12 @@ class CategoryController extends Controller
             ])
         );
     }
+    public function show(Request $request, $id){
+        $perPage = $request->get('per_page', 15);
+        return CategoryResource::collection(Category::where('parent_id', $id)->orderBy('id', 'desc')->paginate($perPage)
+            ->appends([
+                'per_page' => $perPage
+            ])
+        );
+    }
 }

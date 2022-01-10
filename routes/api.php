@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::prefix('v1')->name('api.v1.')->group(function () {
     Route::get('category', [\App\Http\Controllers\API\V1\CategoryController::class, 'index']);
+    Route::get('category/{id}', [\App\Http\Controllers\API\V1\CategoryController::class, 'show']);
     Route::get('gallery', [\App\Http\Controllers\API\V1\GalleryController::class, 'index']);
     Route::get('service', [\App\Http\Controllers\API\V1\ServiceController::class, 'index']);
     Route::get('service/show', [\App\Http\Controllers\API\V1\ServiceController::class, 'show']);
